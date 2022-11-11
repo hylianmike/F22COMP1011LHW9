@@ -1,10 +1,20 @@
 package com.example.f22comp1011lhw9;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Movie {
+    @SerializedName("Title")
     private String title;
+
+    @SerializedName("Year")
     private String year;
+
     private String imdbID;
+
+    @SerializedName("Type")
     private String type;
+
+    @SerializedName("Poster")
     private String poster;
 
     public Movie(String title, String year, String imdbID, String type, String poster) {

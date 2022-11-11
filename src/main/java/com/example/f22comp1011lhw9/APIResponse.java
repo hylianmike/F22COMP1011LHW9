@@ -1,14 +1,20 @@
 package com.example.f22comp1011lhw9;
 
+import com.google.gson.annotations.SerializedName;
+
 public class APIResponse {
+    @SerializedName("Search")
     private Movie[] search;
+
     private String totalResults;
-    private String response;
+
+//    @SerializedName("Response")
+//    private String response;
 
 
     public APIResponse(String totalResults, String response, Movie[] search) {
         setTotalResults(totalResults);
-        setResponse(response);
+//        setResponse(response);
         setSearch(search);
     }
 
@@ -20,13 +26,13 @@ public class APIResponse {
         this.totalResults = totalResults;
     }
 
-    public String getResponse() {
-        return response;
-    }
-
-    public void setResponse(String response) {
-        this.response = response;
-    }
+//    public String getResponse() {
+//        return response;
+//    }
+//
+//    public void setResponse(String response) {
+//        this.response = response;
+//    }
 
     public Movie[] getSearch() {
         return search;
