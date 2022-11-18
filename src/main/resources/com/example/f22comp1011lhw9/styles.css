@@ -1,5 +1,15 @@
 .root{
     -fx-font: bold italic 20pt "Arial";
+    -fx-background-image: url("images/background.png");
+    -fx-background-size: cover;
+}
+
+#msgLabel{
+    -fx-text-fill: #e0820f;
+    -fx-font: bold 30pt "Forte";
+    -fx-background-color: #140d09;
+    -fx-background-radius: 20px;
+    -fx-padding: 10px;
 }
 
 .button {

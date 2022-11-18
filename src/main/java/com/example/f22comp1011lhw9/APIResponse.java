@@ -11,8 +11,22 @@ public class APIResponse {
 
     private String totalResults;
 
-//    @SerializedName("Response")
-//    private String response;
+    @SerializedName("Response")
+    private String response;
+
+    @SerializedName("Error")
+    private String error;
+
+    public String getError()
+    {
+        return error;
+    }
+
+    public boolean resultsReturned()
+    {
+        return response.equalsIgnoreCase("True");
+    }
+
 
 
     public APIResponse(String totalResults, String response, Movie[] search) {
@@ -29,13 +43,13 @@ public class APIResponse {
         this.totalResults = totalResults;
     }
 
-//    public String getResponse() {
-//        return response;
-//    }
-//
-//    public void setResponse(String response) {
-//        this.response = response;
-//    }
+    public String getResponse() {
+        return response;
+    }
+
+    public void setResponse(String response) {
+        this.response = response;
+    }
 
     public Movie[] getSearch() {
         return search;
