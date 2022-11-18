@@ -21,10 +21,7 @@ public class APIUtility {
      */
     public static APIResponse getMoviesFromOMDB(String searchTerm) throws IOException, InterruptedException {
         // "star wars" -> "star%20wars"
-        System.out.println("before: "+searchTerm);
-
         searchTerm = searchTerm.replaceAll(" ", "%20");
-        System.out.println("after: "+searchTerm);
 
         String uri = "http://www.omdbapi.com/?apikey=4a1010ab&s="+searchTerm;
 

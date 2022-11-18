@@ -44,13 +44,27 @@ public class SearchViewController implements Initializable {
         //make the button invisible until the user selects a
         //movie
         selectedVBox.setVisible(false);
+        msgLabel.setVisible(false);
 
         //select a movie from the listview and display the
         //poster art
         listView.getSelectionModel().selectedItemProperty()
                                     .addListener((obs,old,movieSelected)->{
-                                        selectedVBox.setVisible(true);
-                                        posterImageView.setImage(new Image(movieSelected.getPoster()));
+                                        if (movieSelected!=null)
+                                        {
+                                            selectedVBox.setVisible(true);
+                                            try {
+                                                posterImageView.setImage(new Image(movieSelected.getPoster()));
+                                            } catch (IllegalArgumentException e)
+                                            {
+                                                posterImageView.setImage(new Image(Main.class
+                                                                .getResourceAsStream("images/default_poster.png")));
+                                            }
+                                        }
+                                        else
+                                        {
+                                            selectedVBox.setVisible(false);
+                                        }
                                     });
     }
 
@@ -65,6 +79,8 @@ public class SearchViewController implements Initializable {
         //check if the API response had any movies in it
         if (apiResponse.resultsReturned())
         {
+            listView.getItems().clear();
+            msgLabel.setVisible(false);
             resultsBox.setVisible(true);
             List<Movie> movies = apiResponse.getMovies();
             Collections.sort(movies, new Comparator<Movie>() {
@@ -77,6 +93,13 @@ public class SearchViewController implements Initializable {
                 }
             });
             listView.getItems().addAll(movies);
+        }
+        else
+        {
+            resultsBox.setVisible(false);
+            listView.getItems().clear();
+            msgLabel.setVisible(true);
+            msgLabel.setText(apiResponse.getError());
         }
     }
 
