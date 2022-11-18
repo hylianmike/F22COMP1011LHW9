@@ -1,5 +1,6 @@
 package com.example.f22comp1011lhw9;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -49,23 +50,24 @@ public class SearchViewController implements Initializable {
         //select a movie from the listview and display the
         //poster art
         listView.getSelectionModel().selectedItemProperty()
-                                    .addListener((obs,old,movieSelected)->{
-                                        if (movieSelected!=null)
-                                        {
-                                            selectedVBox.setVisible(true);
-                                            try {
-                                                posterImageView.setImage(new Image(movieSelected.getPoster()));
-                                            } catch (IllegalArgumentException e)
-                                            {
-                                                posterImageView.setImage(new Image(Main.class
-                                                                .getResourceAsStream("images/default_poster.png")));
-                                            }
-                                        }
-                                        else
-                                        {
-                                            selectedVBox.setVisible(false);
-                                        }
-                                    });
+                                    .addListener((obs,old,movieSelected)->
+        {
+            if (movieSelected!=null)
+            {
+                selectedVBox.setVisible(true);
+                try {
+                    posterImageView.setImage(new Image(movieSelected.getPoster()));
+                } catch (IllegalArgumentException e)
+                {
+                    posterImageView.setImage(new Image(Main.class
+                                    .getResourceAsStream("images/default_poster.png")));
+                }
+            }
+            else
+            {
+                selectedVBox.setVisible(false);
+            }
+        });
     }
 
     /**
@@ -108,8 +110,7 @@ public class SearchViewController implements Initializable {
      *
      */
     @FXML
-    private void getDetails()
-    {
-
+    private void getDetails(ActionEvent event) throws IOException {
+        SceneChanger.changeScenes(event,"details-view.fxml");
     }
 }
