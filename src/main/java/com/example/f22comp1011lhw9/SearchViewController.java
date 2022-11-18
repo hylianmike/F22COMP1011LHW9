@@ -110,7 +110,9 @@ public class SearchViewController implements Initializable {
      *
      */
     @FXML
-    private void getDetails(ActionEvent event) throws IOException {
-        SceneChanger.changeScenes(event,"details-view.fxml");
+    private void getDetails(ActionEvent event) throws IOException, InterruptedException {
+        Movie movie = listView.getSelectionModel().getSelectedItem();
+
+        SceneChanger.changeScenes(event,"details-view.fxml", movie.getImdbID());
     }
 }

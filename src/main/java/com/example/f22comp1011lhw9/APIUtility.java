@@ -69,4 +69,17 @@ public class APIUtility {
         }
         return apiResponse;
     }
+
+    public static MovieDetail getMovieDetails(String imdbID) throws IOException, InterruptedException {
+
+        String uri = "http://www.omdbapi.com/?apikey=4a1010ab&i="+imdbID;
+
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create(uri)).build();
+        HttpResponse<String> response = client.send(httpRequest,
+                                                HttpResponse.BodyHandlers.ofString());
+
+        Gson gson = new Gson();
+        return gson.fromJson(response.body(), MovieDetail.class);
+    }
 }
