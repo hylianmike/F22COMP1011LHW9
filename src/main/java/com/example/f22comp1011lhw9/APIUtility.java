@@ -19,15 +19,30 @@ public class APIUtility {
      * search term
      * @return ApiResponse is the Java object created from the JSON
      */
-    public static void getMoviesFromOMDB(String searchTerm) throws IOException, InterruptedException {
-        String uri = "http://www.omdbapi.com/?apikey=4a1010ab&s=wakanda";
+    public static APIResponse getMoviesFromOMDB(String searchTerm) throws IOException, InterruptedException {
+        // "star wars" -> "star%20wars"
+        System.out.println("before: "+searchTerm);
+
+        searchTerm = searchTerm.replaceAll(" ", "%20");
+        System.out.println("after: "+searchTerm);
+
+        String uri = "http://www.omdbapi.com/?apikey=4a1010ab&s="+searchTerm;
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create(uri)).build();
 
-        HttpResponse<Path> response = client.send(httpRequest, HttpResponse
-                                            .BodyHandlers
-                                            .ofFile(Paths.get("jsonData.json")));
+        //This will call the API and save the JSON to a file
+//        HttpResponse<Path> response = client.send(httpRequest, HttpResponse
+//                                            .BodyHandlers
+//                                            .ofFile(Paths.get("jsonData.json")));
+
+        //this will call the API and return a HttpResponse object
+        //the "body" of the HttpResponse is the JSON string
+        HttpResponse<String> response = client.send(httpRequest,
+                                                    HttpResponse.BodyHandlers.ofString());
+
+        Gson gson = new Gson();
+        return gson.fromJson(response.body(), APIResponse.class);
     }
 
     /**

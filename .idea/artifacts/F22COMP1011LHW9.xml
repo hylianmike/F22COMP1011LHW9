@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="F22COMP1011LHW9">
+    <output-path>$PROJECT_DIR$/out/artifacts/F22COMP1011LHW9</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="com.example.f22comp1011lhw9.Main" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="nativeBundle" value="all" />
+        <option name="title" value="" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="F22COMP1011LHW9.jar">
+        <element id="module-output" name="F22COMP1011LHW9" />
+      </element>
+    </root>
+  </artifact>
+</component>

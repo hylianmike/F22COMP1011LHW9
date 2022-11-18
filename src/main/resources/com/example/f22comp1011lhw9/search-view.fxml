@@ -34,12 +34,15 @@
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
                   <TextField fx:id="searchTextField" promptText="Enter Movie Title" />
-                  <Button mnemonicParsing="false" text="Search" />
+                  <Button mnemonicParsing="false" onAction="#search" text="Search" />
                </children>
             </HBox>
             <HBox fx:id="resultsBox" alignment="CENTER" spacing="20.0">
                <children>
-                  <ListView fx:id="listView" prefHeight="500.0" prefWidth="350.0" />
+                  <ListView fx:id="listView" prefHeight="500.0" prefWidth="350.0">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding></ListView>
                   <VBox fx:id="selectedVBox" alignment="CENTER">
                      <children>
                         <ImageView fx:id="posterImageView" fitHeight="400.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" />
