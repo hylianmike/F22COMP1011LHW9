@@ -25,6 +25,9 @@
                      <image>
                         <Image url="@images/moviesRus.png" />
                      </image>
+                     <HBox.margin>
+                        <Insets right="80.0" top="60.0" />
+                     </HBox.margin>
                   </ImageView>
                </children>
             </HBox>
