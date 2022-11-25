@@ -26,7 +26,31 @@ public class MovieDetail {
     @SerializedName("BoxOffice")
     private String boxoffice;
 
-//    @SerializedName("Ratings")
-//    private HashMap<String, String> ratings;
+    public String getTitle() {
+        return title;
+    }
 
+    public String getYear() {
+        return year;
+    }
+
+    public String getRated() {
+        return rated;
+    }
+
+    public String getRuntime() {
+        return runtime;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public String getActors() {
+        return actors;
+    }
+
+    public String getBoxoffice() {
+        return boxoffice;
+    }
 }

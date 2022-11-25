@@ -1,8 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
 
 <AnchorPane prefHeight="1000.0" prefWidth="800.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.f22comp1011lhw9.DetailsViewController">
-
+   <children>
+      <VBox prefHeight="1000.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <padding>
+            <Insets top="300.0" />
+         </padding>
+         <children>
+            <GridPane id="gridPane" prefHeight="581.0" prefWidth="740.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" maxWidth="355.0" minWidth="10.0" prefWidth="302.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="418.0" minWidth="10.0" prefWidth="418.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Title" />
+                  <Label text="Year" GridPane.rowIndex="1" />
+                  <Label text="Rating" GridPane.rowIndex="2" />
+                  <Label text="RunTime" GridPane.rowIndex="3" />
+                  <Label text="Director" GridPane.rowIndex="4" />
+                  <Label text="Actors" GridPane.rowIndex="5" />
+                  <Label text="Box Office Sales" GridPane.rowIndex="6" />
+                  <Label fx:id="titleLabel" text="Label" GridPane.columnIndex="1" />
+                  <Label fx:id="yearLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="ratingLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label fx:id="runtimeLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label fx:id="directorLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label fx:id="boxOfficeLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <ListView fx:id="actorsListView" minHeight="100.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+               </VBox.margin>
+            </GridPane>
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>

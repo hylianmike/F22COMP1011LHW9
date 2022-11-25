@@ -46,11 +46,11 @@ public class APIUtility {
      * This method will read the jsonData.json from the root
      * of the project and create an APIResponse object
      */
-    public static APIResponse getMoviesFromJsonFile()
+    public static Movie[] getMoviesFromJsonFile()
     {
         //create a GSON object
         Gson gson = new Gson();
-        APIResponse apiResponse = null;
+        Movie[] movies = null;
 
         //try with resources...what ever is in the ( ) will automatically be closed
         try(
@@ -61,13 +61,13 @@ public class APIUtility {
             //jsonReader - the object that is parsing through the json file
             //APIResponse.class - this is what ever type of object you want the JSON
             //                    to be converted into
-            apiResponse = gson.fromJson(jsonReader, APIResponse.class);
+            movies = gson.fromJson(jsonReader, Movie[].class);
         }
         catch (Exception e)
         {
             e.printStackTrace();
         }
-        return apiResponse;
+        return movies;
     }
 
     public static MovieDetail getMovieDetails(String imdbID) throws IOException, InterruptedException {
